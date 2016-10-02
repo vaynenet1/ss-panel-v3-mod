@@ -1544,7 +1544,7 @@ class UserController extends BaseController
             return $response->getBody()->write(json_encode($res));
         }
 		
-		if (!Tools::is_validate($pwd)) {
+	if (!Tools::is_validate($pwd)) {
             $res['ret'] = 0;
             $res['msg'] = "悟空别闹";
             return $response->getBody()->write(json_encode($res));
@@ -1569,6 +1569,12 @@ class UserController extends BaseController
         $method = strtolower($method);
         
         if ($method == "") {
+            $res['ret'] = 0;
+            $res['msg'] = "悟空别闹";
+            return $response->getBody()->write(json_encode($res));
+        }
+
+	if (!Tools::is_validate($method)) {
             $res['ret'] = 0;
             $res['msg'] = "悟空别闹";
             return $response->getBody()->write(json_encode($res));
